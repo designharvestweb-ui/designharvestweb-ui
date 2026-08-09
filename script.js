@@ -90,44 +90,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // --- Gallery Modal with Slideshow ---
 const projectImages = {
     sanctum: [
-        'projects/sanctum one grace/1.jpeg',
-        'projects/sanctum one grace/1g _.png',
-        'projects/sanctum one grace/2.jpeg',
-        'projects/sanctum one grace/2g.png',
-        'projects/sanctum one grace/OAT.png',
-        'projects/sanctum one grace/podium pool_.png',
-        'projects/sanctum one grace/terrace 1.png',
-        'projects/sanctum one grace/terrace 3.png',
-        'projects/sanctum one grace/terrace_.png'
+        'projects/sanctum-one-grace/1.jpeg',
+        'projects/sanctum-one-grace/1g.png',
+        'projects/sanctum-one-grace/2.jpeg',
+        'projects/sanctum-one-grace/2g.png',
+        'projects/sanctum-one-grace/OAT.png',
+        'projects/sanctum-one-grace/podium-pool_.png',
+        'projects/sanctum-one-grace/terrace-1.png',
+        'projects/sanctum-one-grace/terrace-3.png',
+        'projects/sanctum-one-grace/terrace_.png'
     ],
     urbana: [
-        'projects/urbana a4(residential)/WhatsApp Image 2026-03-05 at 01.57.27.jpeg',
-        'projects/urbana a4(residential)/WhatsApp Image 2026-03-05 at 01.57.28.jpeg',
-        'projects/urbana a4(residential)/WhatsApp Image 2026-03-05 at 01.57.29.jpeg',
-        'projects/urbana a4(residential)/WhatsApp Image 2026-03-05 at 01.57.30.jpeg',
-        'projects/urbana a4(residential)/WhatsApp Image 2026-03-05 at 01.57.31.jpeg'
+        'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.27.jpeg',
+        'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.28.jpeg',
+        'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.29.jpeg',
+        'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.30.jpeg',
+        'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.31.jpeg'
     ],
     alkarim: [
-        'projects/al karim university( comericial)/1_garden.jpg',
-        'projects/al karim university( comericial)/2_playground.jpg',
-        'projects/al karim university( comericial)/3_pet area.jpg',
-        'projects/al karim university( comericial)/4_outdoor mess.jpg',
-        'projects/al karim university( comericial)/5_entrance area.jpg',
-        'projects/al karim university( comericial)/6_residential play area.jpg',
-        'projects/al karim university( comericial)/7_central lawn area.jpg',
-        'projects/al karim university( comericial)/landscape with legend.jpg'
+        'projects/al-karim-university/1_garden.jpg',
+        'projects/al-karim-university/2_playground.jpg',
+        'projects/al-karim-university/3_pet-area.jpg',
+        'projects/al-karim-university/4_outdoor-mess.jpg',
+        'projects/al-karim-university/5_entrance-area.jpg',
+        'projects/al-karim-university/6_residential-play-area.jpg',
+        'projects/al-karim-university/7_central-lawn-area.jpg',
+        'projects/al-karim-university/landscape-with-legend.jpg'
     ],
     nostalgia: [
-        'projects/the nostalgia(commercial)/1v.png',
-        'projects/the nostalgia(commercial)/2 view.png',
-        'projects/the nostalgia(commercial)/3 view.png',
-        'projects/the nostalgia(commercial)/4view.png'
+        'projects/the-nostalgia/1v.png',
+        'projects/the-nostalgia/2-view.png',
+        'projects/the-nostalgia/3-view.png',
+        'projects/the-nostalgia/4view.png'
     ],
     happy: [
-        'projects/happy homes v/GAZEBO_SEATING_VIEW_002_TWILIGHT_2025.05.19_HIRES_1.jpg',
-        'projects/happy homes v/HAPPY HOMES_PH-II_LANDSCAPE GROUND 12.2.jpg',
-        'projects/happy homes v/POND_VIEW_002_DAY_2025.05.19_HIRES.jpg',
-        'projects/happy homes v/YOGA_AREA_VIEW_001_DAY_2025.05.19_HIRES.jpg'
+        'projects/happy-homes/GAZEBO_SEATING_VIEW_002_TWILIGHT_2025.05.19_HIRES_1.jpg',
+        'projects/happy-homes/HAPPY-HOMES_PH-II_LANDSCAPE-GROUND-12.2.jpg',
+        'projects/happy-homes/POND_VIEW_002_DAY_2025.05.19_HIRES.jpg',
+        'projects/happy-homes/YOGA_AREA_VIEW_001_DAY_2025.05.19_HIRES.jpg'
     ]
 };
 
