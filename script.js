@@ -87,6 +87,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// --- Mobile Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('mobile-open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('mobile-open');
+        });
+    });
+}
+
 // --- Gallery Modal with Slideshow ---
 const projectImages = {
     sanctum: [

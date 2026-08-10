@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text {
-    height: 90%;
+    height: 100%;
     width: auto;
 }
 
@@ -132,6 +132,34 @@ h1, h2, h3, h4, h5, h6 {
     height: 2px;
     background-color: var(--primary-gold);
     transition: 0.3s;
+}
+
+/* Mobile Nav Menu */
+.nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.97);
+    padding: 2rem 0;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===== HERO ===== */
