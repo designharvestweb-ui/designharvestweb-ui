@@ -10,7 +10,7 @@ const slideTitles = [
     "SANCTUM ONE GRACE",
     "THE NOSTALGIA",
     "DESIGN HARVEST",
-    "HAPPY HOMES",
+    "HAPPY HOMES V",
     "THE NOSTALGIA",
     "SANCTUM ONE GRACE"
 ];
@@ -108,14 +108,14 @@ const projectImages = {
         'projects/urbana-a4/WhatsApp-Image-2026-03-05-at-01.57.31.jpeg'
     ],
     alkarim: [
+        'projects/al-karim-university/landscape-with-legend.jpg',
         'projects/al-karim-university/1_garden.jpg',
         'projects/al-karim-university/2_playground.jpg',
         'projects/al-karim-university/3_pet-area.jpg',
         'projects/al-karim-university/4_outdoor-mess.jpg',
         'projects/al-karim-university/5_entrance-area.jpg',
         'projects/al-karim-university/6_residential-play-area.jpg',
-        'projects/al-karim-university/7_central-lawn-area.jpg',
-        'projects/al-karim-university/landscape-with-legend.jpg'
+        'projects/al-karim-university/7_central-lawn-area.jpg'
     ],
     nostalgia: [
         'projects/the-nostalgia/1v.png',
