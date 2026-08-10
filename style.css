@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 15px;
-    height: 60%;
+    height: 75%;
 }
 
 .logo-mark {
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text {
-    height: 80%;
+    height: 90%;
     width: auto;
 }
 
@@ -502,6 +502,24 @@ footer {
         font-size: 13px;
     }
 
+    .slide {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: var(--black);
+    }
+
+    .card-image-container {
+        height: 220px;
+    }
+
+    .card-image {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: var(--black);
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
     }
@@ -535,6 +553,10 @@ footer {
 
 @media (max-width: 480px) {
     .gallery-image-wrapper {
-        max-width: 90%;
+        max-width: 95%;
+    }
+
+    .logo {
+        height: 65%;
     }
 }
