@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Design Harvest Consultants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- SECURITY PASSCODE LOCK SCREEN -->
+    <div id="admin-lock-screen" class="admin-lock-screen">
+        <div class="lock-card">
+            <img src="assets/images/logo-1.png" alt="Design Harvest Consultants" class="lock-logo">
+            <h2 class="lock-title">ADMIN ACCESS</h2>
+            <p class="lock-desc">Enter the admin passcode to access website management controls.</p>
+            <form id="lock-form" class="lock-form" onsubmit="event.preventDefault(); attemptUnlock();">
+                <input type="password" id="lock-passcode" class="lock-input" placeholder="Enter Passcode" autocomplete="current-password" autofocus>
+                <div id="lock-error-msg" class="lock-error">Incorrect passcode. Access denied.</div>
+                <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 12px;">
+                    <span>🔓</span> Unlock Dashboard
+                </button>
+            </form>
+            <a href="index.html" class="lock-back-link">&larr; Return to Website</a>
+        </div>
+    </div>
+
+    <!-- TOP NAVBAR -->
+    <header class="admin-navbar">
+        <a href="index.html" class="admin-brand" title="Back to main website">
+            <img src="assets/images/logo-1.png" alt="DH" class="admin-logo-img">
+            <span class="admin-brand-title">DESIGN HARVEST</span>
+            <span class="admin-badge">ADMIN</span>
+        </a>
+        <div class="admin-actions-top">
+            <a href="index.html" target="_blank" class="btn btn-outline btn-sm">
+                <span>👁</span> View Live Site
+            </a>
+            <button id="btn-save-global" class="btn btn-outline btn-sm">
+                <span>💾</span> Save Local
+            </button>
+            <button id="btn-publish-github-top" class="btn btn-primary btn-sm" style="font-weight: 600;">
+                <span>🚀</span> Publish to GitHub
+            </button>
+            <button id="btn-admin-logout" class="btn btn-outline btn-sm" title="Lock admin dashboard">
+                <span>🔒</span> Lock
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN ADMIN LAYOUT -->
+    <main class="admin-layout">
+        <!-- SIDEBAR TABS -->
+        <aside class="admin-sidebar">
+            <nav class="sidebar-nav">
+                <button class="nav-tab-btn active" data-tab="tab-theme">
+                    <span class="nav-tab-icon">🎨</span> Colors &amp; Theme
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-hero">
+                    <span class="nav-tab-icon">🖼</span> Hero Slideshow
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-projects">
+                    <span class="nav-tab-icon">📁</span> Projects &amp; Galleries
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-content">
+                    <span class="nav-tab-icon">📝</span> Texts &amp; About Us
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-export">
+                    <span class="nav-tab-icon">🚀</span> GitHub Export &amp; Backup
+                </button>
+            </nav>
+        </aside>
+
+        <!-- TAB CONTENT PANES -->
+        <section class="admin-content">
+
+            <!-- TAB 1: THEME & COLORS -->
+            <div id="tab-theme" class="tab-pane active">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Colors &amp; Theme Customizer</h2>
+                            <p class="card-subtitle">Change background, text, and accent colors across your entire website.</p>
+                        </div>
+                        <button id="btn-reset-theme" class="btn btn-outline btn-sm">Reset Colors</button>
+                    </div>
+
+                    <div class="color-grid">
+                        <div class="color-item">
+                            <label class="form-label">Primary Background</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="theme-bg" class="color-picker" value="#0A0A0A">
+                                <input type="text" id="theme-bg-hex" class="form-input hex-text-input" value="#0A0A0A">
+                            </div>
+                            <small class="card-subtitle">Main body, hero &amp; projects background</small>
+                        </div>
+
+                        <div class="color-item">
+                            <label class="form-label">Secondary Background</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="theme-dark-bg" class="color-picker" value="#111111">
+                                <input type="text" id="theme-dark-bg-hex" class="form-input hex-text-input" value="#111111">
+                            </div>
+                            <small class="card-subtitle">About Us section &amp; footer background</small>
+                        </div>
+
+                        <div class="color-item">
+                            <label class="form-label">Primary Gold (Accent)</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="theme-gold" class="color-picker" value="#C5A55A">
+                                <input type="text" id="theme-gold-hex" class="form-input hex-text-input" value="#C5A55A">
+                            </div>
+                            <small class="card-subtitle">Titles, borders, links &amp; navigation</small>
+                        </div>
+
+                        <div class="color-item">
+                            <label class="form-label">Text Color</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="theme-text" class="color-picker" value="#C5A55A">
+                                <input type="text" id="theme-text-hex" class="form-input hex-text-input" value="#C5A55A">
+                            </div>
+                            <small class="card-subtitle">Body text &amp; paragraphs</small>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 2rem; font-size: 1rem;">One-Click Preset Palettes</h3>
+                    <div class="preset-themes">
+                        <button class="preset-chip" data-bg="#0A0A0A" data-dark="#111111" data-gold="#C5A55A" data-text="#C5A55A">
+                            <span class="preset-color-dot" style="background:#0A0A0A; border-color:#C5A55A;"></span>
+                            Luxury Gold &amp; Black (Default)
+                        </button>
+                        <button class="preset-chip" data-bg="#0D1117" data-dark="#161B22" data-gold="#D4AF37" data-text="#E6EDF3">
+                            <span class="preset-color-dot" style="background:#0D1117; border-color:#D4AF37;"></span>
+                            Midnight Slate &amp; Gold
+                        </button>
+                        <button class="preset-chip" data-bg="#08140E" data-dark="#0F241A" data-gold="#C5A55A" data-text="#D4DFD8">
+                            <span class="preset-color-dot" style="background:#08140E; border-color:#C5A55A;"></span>
+                            Deep Forest Night
+                        </button>
+                        <button class="preset-chip" data-bg="#000000" data-dark="#0D0D0D" data-gold="#FFFFFF" data-text="#CCCCCC">
+                            <span class="preset-color-dot" style="background:#000000; border-color:#FFFFFF;"></span>
+                            Monochrome Minimal
+                        </button>
+                        <button class="preset-chip" data-bg="#120E0A" data-dark="#1C1712" data-gold="#E2B872" data-text="#E5D9CC">
+                            <span class="preset-color-dot" style="background:#120E0A; border-color:#E2B872;"></span>
+                            Warm Earth &amp; Amber
+                        </button>
+                    </div>
+
+                    <!-- Live Mini Preview -->
+                    <h3 style="margin-top: 2rem; font-size: 1rem;">Live Theme Preview</h3>
+                    <div id="theme-live-preview" style="margin-top: 10px; padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: #0A0A0A; color: #C5A55A;">
+                        <h4 style="color: #C5A55A; font-size: 1.5rem; margin-bottom: 0.5rem;">DESIGN HARVEST CONSULTANTS</h4>
+                        <p style="color: #C5A55A; font-size: 0.95rem; margin-bottom: 1rem;">This is a real-time preview of how headings, text, and backgrounds will appear on your homepage.</p>
+                        <button class="btn btn-primary btn-sm">Sample Gold Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: HERO SLIDESHOW -->
+            <div id="tab-hero" class="tab-pane">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Homepage Slideshow Manager</h2>
+                            <p class="card-subtitle">Manage, reorder, replace, or add images and project titles on the hero slider.</p>
+                        </div>
+                        <button id="btn-add-slide" class="btn btn-primary btn-sm">➕ Add New Slide</button>
+                    </div>
+
+                    <div class="form-group" style="max-width: 300px;">
+                        <label class="form-label">Slideshow Auto-advance Speed</label>
+                        <select id="hero-speed-select" class="form-select">
+                            <option value="3000">3 Seconds (Fast)</option>
+                            <option value="5000" selected>5 Seconds (Recommended)</option>
+                            <option value="7000">7 Seconds (Slow)</option>
+                            <option value="10000">10 Seconds (Very Slow)</option>
+                        </select>
+                    </div>
+
+                    <div id="slides-container" class="slides-list">
+                        <!-- Injected dynamically via admin.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: PROJECTS & GALLERIES -->
+            <div id="tab-projects" class="tab-pane">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Projects &amp; Image Galleries</h2>
+                            <p class="card-subtitle">Add or edit projects, change thumbnails, and add/remove images from project sliders.</p>
+                        </div>
+                        <button id="btn-add-project" class="btn btn-primary btn-sm">➕ Add New Project</button>
+                    </div>
+
+                    <div id="projects-accordion-container">
+                        <!-- Injected dynamically via admin.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: TEXTS & CONTENT -->
+            <div id="tab-content" class="tab-pane">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Website Text &amp; Contact Details</h2>
+                            <p class="card-subtitle">Edit the About Us story, section titles, and contact information.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Section Headings</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <div class="form-group">
+                            <label class="form-label">Projects Section Title</label>
+                            <input type="text" id="text-title-projects" class="form-input" value="PROJECTS">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">About Us Section Title</label>
+                            <input type="text" id="text-title-about" class="form-input" value="ABOUT US">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Section Title</label>
+                            <input type="text" id="text-title-contact" class="form-input" value="CONTACT US">
+                        </div>
+                    </div>
+
+                    <div class="card-header" style="margin-top: 1rem;">
+                        <h3>About Us Paragraphs</h3>
+                        <button id="btn-add-paragraph" class="btn btn-outline btn-sm">➕ Add Paragraph</button>
+                    </div>
+                    <div id="about-paragraphs-container" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                        <!-- Injected dynamically via admin.js -->
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Contact Information</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" id="contact-phone" class="form-input" value="8240289477">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="contact-email" class="form-input" value="queries.designharvest@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Instagram Handle</label>
+                            <input type="text" id="contact-instagram" class="form-input" value="@design_harvest_consultants">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Footer Copyright Text</label>
+                        <input type="text" id="footer-text" class="form-input" value="© 2024 Design Harvest Consultants. All rights reserved.">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: EXPORT & GITHUB SYNC -->
+            <div id="tab-export" class="tab-pane">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>GitHub Export &amp; Backup</h2>
+                            <p class="card-subtitle">How to sync your changes with GitHub Pages so the whole world sees them.</p>
+                        </div>
+                    </div>
+
+                    <!-- DIRECT GITHUB 1-CLICK PUBLISHING -->
+                    <div style="background: rgba(197, 165, 90, 0.08); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.8rem; margin-bottom: 2rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="color: var(--primary-gold); font-size: 1.25rem;">🚀 Direct 1-Click GitHub Publishing</h3>
+                                <p class="card-subtitle">Connect directly to GitHub so any changes publish instantly to the live website without downloading or uploading anything!</p>
+                            </div>
+                            <span id="gh-status-badge" class="admin-badge" style="font-size:0.8rem; padding: 6px 12px;">Not Configured</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label">GitHub Personal Access Token</label>
+                                <input type="password" id="gh-token-input" class="form-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label">Repository (owner/repo)</label>
+                                <input type="text" id="gh-repo-input" class="form-input" placeholder="e.g. designharvestweb-ui/designharvestweb-ui">
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label">Branch</label>
+                                <input type="text" id="gh-branch-input" class="form-input" value="main">
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem;">
+                            <button id="btn-save-gh-config" class="btn btn-outline btn-sm">
+                                <span>💾</span> Save GitHub Settings
+                            </button>
+                            <button id="btn-test-gh-connection" class="btn btn-outline btn-sm">
+                                <span>🔌</span> Test Connection
+                            </button>
+                            <button id="btn-publish-github-main" class="btn btn-primary btn-sm" style="font-weight: 600;">
+                                <span>🚀</span> Publish Changes Directly to GitHub Now
+                            </button>
+                        </div>
+
+                        <!-- 30-second token guide -->
+                        <details style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 12px 16px; font-size: 0.85rem; border: 1px solid rgba(197, 165, 90, 0.15);">
+                            <summary style="color: var(--primary-gold); cursor: pointer; font-weight: 500;">
+                                🔑 How to get your GitHub Token in 30 seconds (Click to expand)
+                            </summary>
+                            <ol style="margin-left: 1.5rem; margin-top: 10px; line-height: 1.8; color: var(--text-muted);">
+                                <li>Open <a href="https://github.com/settings/tokens/new?description=Design%20Harvest%20Admin&scopes=repo" target="_blank" style="color: var(--primary-gold); text-decoration: underline;">GitHub Token Generator</a> in a new tab.</li>
+                                <li>Set Expiration to <strong>No expiration</strong> (or 90 days).</li>
+                                <li>Ensure the <strong><code>repo</code></strong> scope checkbox is checked.</li>
+                                <li>Scroll to the bottom and click green <strong>"Generate token"</strong>.</li>
+                                <li>Copy the token (starts with <code>ghp_</code>) and paste it into the box above, then click <strong>"Save GitHub Settings"</strong>!</li>
+                            </ol>
+                        </details>
+                    </div>
+
+                    <!-- FALLBACK MANUAL EXPORT -->
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Manual Download &amp; Backup (Optional)</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                        <button id="btn-download-data-js" class="btn btn-outline">
+                            <span>📥</span> Download data.js manually
+                        </button>
+                        <button id="btn-export-json" class="btn btn-outline">
+                            <span>💾</span> Backup Configuration (JSON)
+                        </button>
+                        <label class="btn btn-outline" style="cursor: pointer;">
+                            <span>📂</span> Restore from Backup
+                            <input type="file" id="import-json-file" accept=".json" style="display: none;">
+                        </label>
+                        <button id="btn-factory-reset" class="btn btn-danger">
+                            <span>🔄</span> Factory Reset to Defaults
+                        </button>
+                    </div>
+
+                    <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-top: 2rem;">
+                        <h3 style="color: var(--primary-gold); margin-bottom: 0.8rem; font-size: 1.1rem;">Admin Passcode Settings</h3>
+                        <p class="card-subtitle" style="margin-bottom: 1rem;">Change the passcode used to unlock this dashboard (Current default: <code>1234567890</code>).</p>
+                        <div style="display: flex; gap: 10px; max-width: 400px;">
+                            <input type="text" id="new-passcode-input" class="form-input" placeholder="Enter new passcode" value="1234567890">
+                            <button id="btn-update-passcode" class="btn btn-primary btn-sm">Save Passcode</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- GENERIC IMAGE PICKER / UPLOAD MODAL -->
+    <div id="image-modal" class="admin-modal-backdrop">
+        <div class="admin-modal-box">
+            <button class="admin-modal-close" onclick="closeImageModal()">&times;</button>
+            <h3 id="image-modal-title" style="margin-bottom: 1rem;">Select or Upload Image</h3>
+            
+            <div class="form-group">
+                <label class="form-label">Option 1: Upload Image from Computer</label>
+                <div id="modal-dropzone" class="dropzone">
+                    <div class="dropzone-icon">📁</div>
+                    <div class="dropzone-text">Click to choose image or drag &amp; drop here</div>
+                    <small style="color: var(--text-muted); display: block; margin-top: 4px;">Automatically compressed for fast web loading</small>
+                    <input type="file" id="modal-file-input" accept="image/*" style="display: none;">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.5rem;">
+                <label class="form-label">Option 2: Enter File Path or Image URL</label>
+                <input type="text" id="modal-url-input" class="form-input" placeholder="e.g. projects/sanctum-one-grace/1.jpeg or https://...">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Option 3: Choose Existing Website Image</label>
+                <select id="modal-existing-select" class="form-select">
+                    <option value="">-- Choose from existing site images --</option>
+                    <!-- Injected dynamically -->
+                </select>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 10px;">
+                <button class="btn btn-outline" onclick="closeImageModal()">Cancel</button>
+                <button id="btn-confirm-image" class="btn btn-primary">Apply Image</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- SCRIPTS -->
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

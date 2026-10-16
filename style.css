@@ -3,6 +3,8 @@
     --white: #FFFFFF;
     --black: #0A0A0A;
     --dark-bg: #111111;
+    --text-color: #C5A55A;
+    --nav-bg: rgba(10, 10, 10, 0.95);
     --deep-red: #8B2332;
     --forest-green: #2D5F3A;
     --nav-height: 80px;
@@ -16,7 +18,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: var(--primary-gold);
+    color: var(--text-color);
     background-color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
@@ -63,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(10, 10, 10, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -138,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
     top: var(--nav-height);
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.97);
+    background: var(--nav-bg);
     padding: 2rem 0;
     gap: 1.5rem;
     align-items: center;
@@ -399,6 +401,21 @@ footer {
     padding: 2rem 0;
     text-align: center;
     border-top: 1px solid rgba(197, 165, 90, 0.15);
+}
+
+.footer-admin-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    color: rgba(197, 165, 90, 0.4);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.footer-admin-link:hover {
+    color: var(--primary-gold);
 }
 
 /* ===== GALLERY MODAL ===== */
