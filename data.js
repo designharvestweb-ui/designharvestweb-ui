@@ -62,8 +62,8 @@ window.DEFAULT_SITE_DATA = {
       "category": "RESIDENTIAL",
       "coverImage": "projects/sanctum-one-grace/1.jpeg",
       "images": [
-        "projects/sanctum-one-grace/1g.png",
         "projects/sanctum-one-grace/1.jpeg",
+        "projects/sanctum-one-grace/1g.png",
         "projects/sanctum-one-grace/2g.png",
         "projects/sanctum-one-grace/OAT.png",
         "projects/sanctum-one-grace/2.jpeg",
